@@ -36,6 +36,8 @@ If you want to create a client with additional options the easiest way is to pas
 This client has no hard-coded API definitions built into it. It merly acts as a proxy which means that you'll never have to update the client once new API methods are released. If you want to call a service/method all you have to do is look at the [API documentation](https://app.userapp.io/#/docs/) and follow the convention below:
 
     result = api.[service].[method](:[argument] => [value])
+    
+Please note that you need to mark the method that you want to call with one or several arguments. I.e. `api.user.get()` will NOT call the API `user.get`, instead, it will only instatiate a service called user.get. To call a method on a service you need to pass arguments. If you don't have any arguments, you can just pass `nil`. I.e. the correct call would look like `api.user.get(nil)`.
 
 #### Some examples
 
