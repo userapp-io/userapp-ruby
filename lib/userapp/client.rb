@@ -25,7 +25,7 @@ module UserApp
 
 		def get_options(*args)
 			if self.options.nil?
-				self.options = UserApp::ClientOptions.get_global().copy()
+				self.options = UserApp::ClientOptions.get_global().clone()
 			end
 			return self.options
 		end

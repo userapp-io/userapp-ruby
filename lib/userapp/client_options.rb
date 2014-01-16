@@ -42,10 +42,6 @@ module UserApp
 			end
 		end
 
-		def copy()
-			return ClientOptions.new(self.instance_variables)
-		end
-
 		def self.get_global(*args)
 			if @@instance.nil?
 				@@instance = ClientOptions.new(args)

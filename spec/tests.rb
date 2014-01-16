@@ -1,21 +1,14 @@
 require 'logger'
-require 'userapp'
-#require File.expand_path('../../lib/userapp/userapp.rb', __FILE__)
+require File.expand_path('../../lib/userapp/userapp.rb', __FILE__)
 
 api = UserApp::API.new(
-	:app_id => '52b8ab9533604',
-	:token => 'fc9fJ1mrT4_1JVOZDu80Hng'
+	:app_id => 'YOUR_APP_ID',
+	:token => 'YOUR_TOKEN'
 )
 
 begin
-	user_result = api.user.get(:user_id => 'sellf')
-	if user_result.respond_to?('error_code')
-		puts 'Me gots errors!'
-		puts user_result
-	else
-		puts user_result[0].first_name
-	end
+	user = api.user.get(:user_id => 'self')[0]
+	puts "#{user.email} (#{user.user_id})"
 rescue UserApp::Error => error
-	puts 'Exception rescued'
 	puts error
 end
