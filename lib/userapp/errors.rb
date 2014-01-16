@@ -2,10 +2,10 @@ module UserApp
 	class Error < Exception
 	end
 
-	class InvalidServiceException < Error
+	class InvalidServiceError < Error
 	end
 
-	class InvalidMethodException < Error
+	class InvalidMethodError < Error
 	end
 
 	class ServiceError < Error

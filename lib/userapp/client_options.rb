@@ -4,6 +4,7 @@ module UserApp
 	class ClientOptions
 		@@instance = nil
 
+		attr_accessor :version
 		attr_accessor :app_id
 		attr_accessor :token
 		attr_accessor :base_address
@@ -13,6 +14,7 @@ module UserApp
 		attr_accessor :logger
 
 		def initialize(*args)
+			@version = 1
 			@base_address = 'api.userapp.io'
 			@throw_errors = true
 			@secure = true

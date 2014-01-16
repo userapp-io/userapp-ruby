@@ -25,7 +25,7 @@ module UserApp
 
 		def get_options(*args)
 			if self.options.nil?
-				self.options = UserApp::ClientOptions.get_global().clone()
+				self.options = ClientOptions.get_global().clone()
 			end
 			return self.options
 		end
@@ -62,9 +62,9 @@ module UserApp
 
 				if self.options.throw_errors and is_error_result
 					if result.error_code == 'INVALID_SERVICE'
-						raise InvalidServiceException.new("Service '#{service}' does not exist.")
+						raise InvalidServiceError.new("Service '#{service}' does not exist.")
 					elsif result.error_code == 'INVALID_METHOD'
-						raise InvalidServiceException.new("Method '#{method}' on service '#{service}' does not exist.")
+						raise InvalidServiceError.new("Method '#{method}' on service '#{service}' does not exist.")
 					else
 						raise ServiceError.new(result.error_code, result.message)
 					end
