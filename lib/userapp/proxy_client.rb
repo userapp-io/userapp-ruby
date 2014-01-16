@@ -29,7 +29,7 @@ module UserApp
 					raise UserApp::Error.new("Unable to call method on base service.")
 				end
 
-				self.client.call(self.get_options().version, self.service_name, method_id.to_s(), args[0])
+				self.client.call(self.get_options().version, self.service_name, self.camel_case_lower(method_id.to_s()), args[0])
 			else
 				target_service = nil
 
@@ -41,18 +41,23 @@ module UserApp
 					self.get_options().version = method_id[1].to_i
 				else
 					if !self.service_name.nil?
-						target_service = self.service_name.to_s + '.' + method_id.to_s
+						target_service = self.service_name.to_s + '.' + self.camel_case_lower(method_id.to_s)
 					else
-						target_service = method_id.to_s
+						target_service = self.camel_case_lower(method_id.to_s)
 					end
 				end
 
-				puts target_service
 				proxy = ProxyClient.new(self.client, target_service)
 				self.services[method_id] = proxy
 
 				return proxy
 			end
 		end
+
+		def camel_case_lower(value)
+	  		return value.split('_').inject([]){ |buffer,e| buffer.push(buffer.empty? ? e : e.capitalize) }.join
+		end
+
+		protected :camel_case_lower
 	end
 end
