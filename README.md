@@ -37,7 +37,7 @@ This client has no hard-coded API definitions built into it. It merly acts as a 
 
     result = api.[service].[method](:[argument] => [value])
     
-Please note that you need to mark the method that you want to call with one or several arguments. I.e. `api.user.get()` will NOT call the API `user.get`, instead, it will only instatiate a service called user.get. To call a method on a service you need to pass arguments. If you don't have any arguments, you can just pass `nil`. I.e. the correct call would look like `api.user.get(nil)`.
+Please note that you need to mark the method that you want to call with one or several arguments. I.e. `api.user.get()` will NOT call the API `user.get`, instead, it will only instantiate a service called `user.get`. So to call a method on a service you need to pass arguments. If you don't have any arguments, you can just pass `nil`. I.e. the correct call would look like `api.user.get(nil)`.
 
 #### Some examples
 
