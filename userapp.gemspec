@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = "User management and authentication for your Ruby app."
   s.authors     = ["Robin Orheden"]
   s.email       = 'robin.orheden@userapp.io'
-  s.homepage    = 'https://www.userapp.io/'
+  s.homepage    = 'https://github.com/userapp-io/userapp-ruby/'
   s.license     = 'MIT'
 
   s.files       = Dir["{lib}/**/*"] + ["README.md"]
