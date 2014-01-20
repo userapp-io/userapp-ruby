@@ -5,7 +5,7 @@ require 'userapp/version'
 Gem::Specification.new do |s|
   s.name        = 'userapp'
   s.version     = UserApp::VERSION
-  s.date        = '2014-01-16'
+  s.date        = '2014-01-19'
   s.summary     = "UserApp"
   s.description = "User management and authentication for your Ruby app."
   s.authors     = ["Robin Orheden"]
@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
 
   s.files       = Dir["{lib}/**/*"] + ["README.md"]
   s.add_dependency "json"
+  s.add_dependency "rest-client"
 end
