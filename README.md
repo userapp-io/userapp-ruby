@@ -148,7 +148,7 @@ When the option `throw_errors` is set to `true` (default) the client will automa
 		end
 	end
 
-Setting `throw_errors` to `false` is more of a way to tell the client to be silent. This will not throw any service specific exceptions. Though, it might throw a `userapp.UserAppException`.
+Setting `throw_errors` to `false` is more of a way to tell the client to be silent. This will not throw any service specific exceptions. Though, it might throw a `UserApp::Error`, `UserApp::InvalidServiceError`, or `UserApp::InvalidMethodError`.
 
 	result = api.user.save(:user_id => "invalid user id")
 
